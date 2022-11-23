@@ -3,28 +3,21 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 body{
     background: #448aff;
 }
-
 /* --------------------background */
 .container-fluid{
- width: 410px;
- margin: 50px auto;
- padding: 10px;
-
+    width: 410px;
+    margin: 50px auto;
+    padding: 10px;
 }
-
-
 .inputs {
     padding: 2rem 0 2rem 0;
     text-align: center;
     justify-content: center;
     background: white;
-
 }
-
 .inputs input[type="text"] {
     height: 3.5rem;
     width: 20rem;
@@ -37,7 +30,6 @@ body{
     border: 2px solid #c2c2c2;
     border-radius: 2px;
     margin-right:4px ;
-
 }
 .inputs input[type="submit"] {
     height: 3.2rem;
@@ -50,7 +42,6 @@ body{
     border: none;
     border-radius: 2px;
 }
-
 /* -------------------------------display */
 .display {
     text-align: center;
@@ -59,33 +50,30 @@ body{
 }
 .wrapper {
     margin: 0 9rem;
-
     background-color: white;
     height: 45vh;
     margin: 50px auto;
     border-radius: 2px;
 }
-
 .wrapper h2{
     padding: 5px 0;
     text-align: center;
     background: #0548b5;
     color: white;
     font-family: sans-serif;
-  }
-  .wrapper p{
+}
+.wrapper p{
     margin:20px 50px;
     margin-right: 20px;
-text-align: left;
-color: #04214c;
+    text-align: left;
+    color: #04214c;
     font-size:23px;
-  }
-
-  .wrapper h2 span{
+}
+.wrapper h2 span{
     font-size: 26px;
     color: #9beefb;
-  }
-    .wrapper p span{
+}
+.wrapper p span{
     color: #90006e;
     font-size: 25px;
-  }
+}

@@ -25,37 +25,20 @@ btn.addEventListener("click", function () {
     //.then(data => console.log(data))
 
     .then((data) => {
-      var nameval = ""; //data["name"];
-      var descrip = ""; //data["weather"]["0"]["description"];
-      var tempature = ""; //data["main"]["temp"];
-      var windSpeed = ""; //data["wind"]["speed"];
+      var nameval = "";
+      var desc = "";
+      var tempature = "";
+      var windSpeed = "";
       var icon = "";
-
-      for (const [key, value] of Object.entries(data)) {
-        //console.log(`${key}: ${value}`);
-        if (key === "weather") {
-          value.forEach((e) => {
-            //console.log(e.description)
-            descrip = e.description;
-            icon = e.icon
-         
-          });
-        } else if (key === "main") {
-          //console.log(value)
-          tempature = value.temp;
-        } else if (key === "wind") {
-          windSpeed = value.speed;
-        } else if (key === "name") {
-          nameval = value;
-        }
-      }
-
+      data.weather.forEach((w) => {
+        desc = w.descripption;
+        icon = w.icon;
+      });
       //Display data into HTML page
-      city.innerHTML = `Weather of <span>${nameval}  <span>`;
-      temp.innerHTML = `Temperature: <span>${convertion(tempature)} C</span>`;
-      description.innerHTML = `Sky Conditions: <span> ${descrip} <img src="http://openweathermap.org/img/wn/${icon}@2x.png" width="60" height="60"><span>`;
-      wind.innerHTML = `Wind Speed: <span>${windSpeed} km/h<span>`;
-
+      city.innerHTML = `Weather of <span>${data.name} <img src="http://openweathermap.org/img/wn/${icon}@2x.png" width="60" height="60"></span>`;
+      temp.innerHTML = `Temperature: <span>${convertion(data.temp)} C</span>`;
+      description.innerHTML = `Sky Conditions: <span> ${desc}`;
+      wind.innerHTML = `Wind Speed: <span>${data.speed} km/h<span>`;
     })
     .catch((err) => alert("You entered Wrong city name"));
 });
