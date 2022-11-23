@@ -31,14 +31,16 @@ btn.addEventListener("click", function () {
       var windSpeed = "";
       var icon = "";
       data.weather.forEach((w) => {
-        desc = w.descripption;
+        desc = w.description;
         icon = w.icon;
       });
       //Display data into HTML page
       city.innerHTML = `Weather of <span>${data.name} <img src="http://openweathermap.org/img/wn/${icon}@2x.png" width="60" height="60"></span>`;
-      temp.innerHTML = `Temperature: <span>${convertion(data.temp)} C</span>`;
+      temp.innerHTML = `Temperature: <span>${convertion(
+        data.main.temp
+      )} C</span>`;
       description.innerHTML = `Sky Conditions: <span> ${desc}`;
-      wind.innerHTML = `Wind Speed: <span>${data.speed} km/h<span>`;
+      wind.innerHTML = `Wind Speed: <span>${data.wind.speed} km/h<span>`;
     })
     .catch((err) => alert("You entered Wrong city name"));
 });
