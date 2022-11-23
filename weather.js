@@ -29,17 +29,37 @@ btn.addEventListener("click", function () {
     //.then(data => console.log(data))
 
     .then((data) => {
-      //Now you need to collect the necessary information with the API link. Now I will collect that information and store it in different constants.
+      var nameval = ''//data["name"];
+      var descrip = ''//data["weather"]["0"]["description"];
+      var tempature = '' //data["main"]["temp"];
+      var windSpeed = '' //data["wind"]["speed"];
 
-      var nameval = data["name"];
-      var descrip = data["weather"]["0"]["description"];
-      var tempature = data["main"]["temp"];
-      var wndspd = data["wind"]["speed"];
+      //Now you need to collect the necessary information with the API link. Now I will collect that information and store it in different constants.
+      for (const [key, value] of Object.entries(data)) {
+        //console.log(`${key}: ${value}`);
+          if (key === 'weather'){
+            value.forEach(e => {
+            //console.log(e.description)
+            descrip = e.description
+          })
+          }
+          else if (key === 'main'){
+            //console.log(value)
+            tempature = value.temp
+          }
+          else if (key === 'wind'){
+            windSpeed = value.speed
+          }
+          else if (key === 'name'){
+            nameval = value
+          }
+      }
+
       //Now with the help of innerHTML you have to make arrangements to display all the information in the webpage.
       city.innerHTML = `Weather of <span>${nameval}<span>`;
       temp.innerHTML = `Temperature: <span>${convertion(tempature)} C</span>`;
       description.innerHTML = `Sky Conditions: <span>${descrip}<span>`;
-      wind.innerHTML = `Wind Speed: <span>${wndspd} km/h<span>`;
+      wind.innerHTML = `Wind Speed: <span>${windSpeed} km/h<span>`;
     })
 
     //Now the condition must be added that what if you do not input anything in the input box.
